@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca&display=swap');
+
+$header-font:'Big Shoulders Display', cursive;
+$content-font: 'Lexend Deca', sans-serif;
+$transparent-white: hsla(0, 0%, 100%, 0.75);
+$bright-orange : hsl(31, 77%, 52%);
+$dark-cyan: hsl(184, 100%, 22%);
+$very-dark-cyan: hsl(179, 100%, 13%);
+
+@mixin card($bgcolor: #36454F) {
+    width: 300px;
+    height: 500px;
+    background-color: $bgcolor;
+    color: $transparent-white;
+    padding: 20px;
+    &__header {
+        margin: 20px 0;
+        font-size: 3ch;
+        font-weight: bold;
+        font-family: $header-font;
+        color: white;
+    }
+
+    &__icon {
+        margin: 20px 0;
+    }
+
+    &__content {
+        line-height: 1.6;
+        font-family: $content-font;
+        margin-bottom: 20px;
+    }
+
+    &__button {
+        color: $bgcolor;
+        background-color: white;
+        border-radius: 25px;
+        width: 150px;
+        height: 50px;
+        text-align: center;
+        text-decoration: none;
+        border: 0px;
+        cursor: pointer;
+        font-size: 2.5ch;
+    }
+
+    &__button:hover {
+        background-color: $bgcolor;
+        color:white;
+        border: 5px solid white;
+    }
+}
+
+.option1 {
+    @include card($bgcolor: $bright-orange);
+}
+
+.option2 {
+    @include card($bgcolor: $dark-cyan);
+}
+
+.option3 {
+    @include card($bgcolor: $very-dark-cyan);
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+
+// This applies from 600px onwards
+@media (min-width: 600px) {
+    .container {
+        display: flex;
+        flex-direction: row;
+    }
+  }
